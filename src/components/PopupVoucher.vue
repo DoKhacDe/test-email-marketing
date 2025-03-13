@@ -1,6 +1,6 @@
 <template>
   <transition>
-    <div class="popup-overlay" v-if="showPopup">
+    <div id="popup-overlay" v-if="showPopup">
       <div class="popup-content">
         <button class="close-btn" @click="closePopup">×</button>
         <h2>GET VOUCHER</h2>
@@ -108,7 +108,7 @@ export default {
 </script>
 
 <style scoped>
-.popup-overlay {
+#popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -121,7 +121,7 @@ export default {
   z-index: 1000;
 }
 
-.popup-content {
+#popup-overlay .popup-content {
   background: #000;
   padding: 20px;
   border-radius: 10px;
@@ -132,7 +132,7 @@ export default {
   max-width: 400px;
 }
 
-.close-btn {
+#popup-overlay .close-btn {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -143,17 +143,17 @@ export default {
   cursor: pointer;
 }
 
-h2 {
+#popup-overlay h2 {
   color: #ff0000;
   margin-bottom: 10px;
 }
 
-p {
+#popup-overlay p {
   margin: 10px 0;
   font-size: 14px;
 }
 
-input {
+#popup-overlay input {
   width: 80%;
   padding: 10px;
   margin: 10px 0;
@@ -161,7 +161,7 @@ input {
   border-radius: 5px;
 }
 
-.get-btn {
+#popup-overlay .get-btn {
   background: #ff0000;
   color: #fff;
   border: none;
@@ -171,22 +171,22 @@ input {
   font-size: 16px;
 }
 
-.get-btn:hover {
+#popup-overlay .get-btn:hover {
   background: #cc0000;
 }
 
-.decline-text {
+#popup-overlay .decline-text {
   color: #fff;
   cursor: pointer;
   font-size: 12px;
   text-decoration: underline;
 }
 
-.decline-text:hover {
+#popup-overlay .decline-text:hover {
   color: #ccc;
 }
 
-.error-message {
+#popup-overlay .error-message {
   color: #ff0000;
   font-size: 12px;
   margin: 5px 0;
