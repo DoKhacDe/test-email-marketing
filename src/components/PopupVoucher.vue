@@ -20,7 +20,8 @@ export default {
     return {
       showPopup: false,
       email: '',
-      emailError: '', // Thay bằng chuỗi để hiển thị thông báo lỗi cụ thể
+      emailError: '',
+      scriptType: ''
     }
   },
   methods: {
@@ -30,7 +31,7 @@ export default {
       this.showPopup = false;
     },
     submitEmail() {
-      this.validateEmail(); // Kiểm tra email trước khi gửi
+      this.validateEmail();
       if (!this.emailError) {
         this.sendSubscription();
       }
@@ -49,11 +50,11 @@ export default {
       return emailRegex.test(email);
     },
     async sendSubscription() {
-      const domain = window.location.hostname; // Lấy domain từ trình duyệt
+      const domain = window.location.hostname;
       const payload = {
         email: this.email,
         domain: domain,
-        type: 'wp' // Mặc định là wp
+        type: this.scriptType
       };
 
       try {
@@ -77,6 +78,17 @@ export default {
       }
     },
 
+    getScriptType() {
+      const scripts = document.getElementsByTagName('script');
+      for (let script of scripts) {
+        if (script.src.includes('email-marketing.js')) {
+          const type = script.getAttribute('data-type') || script.getAttribute('type') || 'wp';
+          return type;
+        }
+      }
+      return '';
+    },
+
     shouldShowPopup() {
       const closedTime = localStorage.getItem('popupClosedTime');
       if (!closedTime) return true;
@@ -90,6 +102,7 @@ export default {
   },
   created() {
     this.showPopup = this.shouldShowPopup();
+    this.scriptType = this.getScriptType();
   },
 }
 </script>
