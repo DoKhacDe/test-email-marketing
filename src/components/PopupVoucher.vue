@@ -8,7 +8,7 @@
         <h2 style="color: #ff0000; margin-bottom: 10px;">GET VOUCHER</h2>
         <p style="margin: 10px 0; font-size: 14px;">Subscribe to our valued customer's list and claim your coupon to get a voucher for your first order.</p>
         <input type="email" v-model="email" placeholder="Enter your email" @input="validateEmail"
-        style=" width: 80%; padding: 10px; margin: 10px 0; border: none; border-radius: 5px;"
+        style=" width: 80%; padding: 10px; margin: 10px 0; border: none; border-radius: 5px; color: black"
         />
         <p v-if="emailError" style="color: #ff0000; font-size: 12px; margin: 5px 0; text-align: left; padding-left: 10%;">{{ emailError }}</p>
         <button class="get-btn" @click="submitEmail"
