@@ -10,7 +10,7 @@
         <input type="email" v-model="email" placeholder="Enter your email" @input="validateEmail"
         style=" width: 80%; padding: 10px; margin: 10px 0; border: none; border-radius: 5px;"
         />
-        <p v-if="emailError" class="error-message">{{ emailError }}</p>
+        <p v-if="emailError" style="color: #ff0000; font-size: 12px; margin: 5px 0; text-align: left; padding-left: 10%;">{{ emailError }}</p>
         <button class="get-btn" @click="submitEmail"
         style="background: #ff0000; color: #fff; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-size: 16px;"
         >Get it now</button>
