@@ -13,6 +13,10 @@ module.exports = defineConfig({
     optimization: {
       splitChunks: false,
     },
+    css: {
+      extract: true,
+      sourceMap: false,
+    }
   },
 
   chainWebpack: (config) => {
