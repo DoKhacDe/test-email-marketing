@@ -1,15 +1,17 @@
 <template>
-  <div class="popup-overlay" v-if="showPopup">
-    <div class="popup-content">
-      <button class="close-btn" @click="closePopup">×</button>
-      <h2>GET VOUCHER</h2>
-      <p>Subscribe to our valued customer's list and claim your coupon to get a voucher for your first order.</p>
-      <input type="email" v-model="email" placeholder="Enter your email" @input="validateEmail" />
-      <p v-if="emailError" class="error-message">{{ emailError }}</p>
-      <button class="get-btn" @click="submitEmail">Get it now</button>
-      <p class="decline-text" @click="closePopup">No, thank you. I prefer to pay the entire price.</p>
+  <transition>
+    <div class="popup-overlay" v-if="showPopup">
+      <div class="popup-content">
+        <button class="close-btn" @click="closePopup">×</button>
+        <h2>GET VOUCHER</h2>
+        <p>Subscribe to our valued customer's list and claim your coupon to get a voucher for your first order.</p>
+        <input type="email" v-model="email" placeholder="Enter your email" @input="validateEmail" />
+        <p v-if="emailError" class="error-message">{{ emailError }}</p>
+        <button class="get-btn" @click="submitEmail">Get it now</button>
+        <p class="decline-text" @click="closePopup">No, thank you. I prefer to pay the entire price.</p>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
