@@ -1,14 +1,20 @@
 <template>
   <transition>
-    <div id="popup-overlay" v-if="showPopup">
-      <div class="popup-content">
-        <button class="close-btn" @click="closePopup">×</button>
-        <h2>GET VOUCHER</h2>
-        <p>Subscribe to our valued customer's list and claim your coupon to get a voucher for your first order.</p>
-        <input type="email" v-model="email" placeholder="Enter your email" @input="validateEmail" />
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: flex; justify-content: center; align-items: center; z-index: 1000;"
+         v-if="showPopup">
+      <div style="background: #000; padding: 20px; border-radius: 10px; text-align: center; color: #fff; position: relative; width: 90%; max-width: 400px;">
+        <button style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; color: #fff; cursor: pointer;"
+                @click="closePopup">×</button>
+        <h2 style="color: #ff0000; margin-bottom: 10px;">GET VOUCHER</h2>
+        <p style="margin: 10px 0; font-size: 14px;">Subscribe to our valued customer's list and claim your coupon to get a voucher for your first order.</p>
+        <input type="email" v-model="email" placeholder="Enter your email" @input="validateEmail"
+        style=" width: 80%; padding: 10px; margin: 10px 0; border: none; border-radius: 5px;"
+        />
         <p v-if="emailError" class="error-message">{{ emailError }}</p>
-        <button class="get-btn" @click="submitEmail">Get it now</button>
-        <p class="decline-text" @click="closePopup">No, thank you. I prefer to pay the entire price.</p>
+        <button class="get-btn" @click="submitEmail"
+        style="background: #ff0000; color: #fff; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; font-size: 16px;"
+        >Get it now</button>
+        <p style="  color: #fff; cursor: pointer; font-size: 12px; text-decoration: underline;" @click="closePopup">No, thank you. I prefer to pay the entire price.</p>
       </div>
     </div>
   </transition>
@@ -108,89 +114,5 @@ export default {
 </script>
 
 <style>
-#popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
 
-#popup-overlay .popup-content {
-  background: #000;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  color: #fff;
-  position: relative;
-  width: 90%;
-  max-width: 400px;
-}
-
-#popup-overlay .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #fff;
-  cursor: pointer;
-}
-
-#popup-overlay h2 {
-  color: #ff0000;
-  margin-bottom: 10px;
-}
-
-#popup-overlay p {
-  margin: 10px 0;
-  font-size: 14px;
-}
-
-#popup-overlay input {
-  width: 80%;
-  padding: 10px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 5px;
-}
-
-#popup-overlay .get-btn {
-  background: #ff0000;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-#popup-overlay .get-btn:hover {
-  background: #cc0000;
-}
-
-#popup-overlay .decline-text {
-  color: #fff;
-  cursor: pointer;
-  font-size: 12px;
-  text-decoration: underline;
-}
-
-#popup-overlay .decline-text:hover {
-  color: #ccc;
-}
-
-#popup-overlay .error-message {
-  color: #ff0000;
-  font-size: 12px;
-  margin: 5px 0;
-  text-align: left;
-  padding-left: 10%;
-}
 </style>
