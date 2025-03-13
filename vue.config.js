@@ -15,11 +15,6 @@ module.exports = defineConfig({
     },
   },
 
-  css: {
-    extract: true,
-    sourceMap: false,
-  },
-
   chainWebpack: (config) => {
     config.resolve.alias
         .set('@', path.resolve(__dirname, 'src'))
